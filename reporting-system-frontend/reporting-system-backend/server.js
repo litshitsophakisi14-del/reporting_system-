@@ -21,7 +21,6 @@ app.use('/api/reports', reportRoutes);
 app.use("/api/ratings", ratingsRouter);
 
 // ✅ Serve React frontend
-// Adjust the path based on your project structure
 const frontendBuildPath = path.join(__dirname, '../reporting-system-frontend/build');
 
 // Serve static files from the React app
@@ -44,5 +43,5 @@ app.get('/api/db-test', async (req, res) => {
 });
 
 // ✅ Start server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // Ensure this matches your environment
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
