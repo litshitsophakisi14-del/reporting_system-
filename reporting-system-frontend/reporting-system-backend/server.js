@@ -20,13 +20,29 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/reports', reportRoutes);
 app.use("/api/ratings", ratingsRouter);
 
-// ✅ Serve frontend
-const frontendBuildPath = path.join(__dirname, '../build'); // updated path
+// ✅ Serve React frontend
+// Option 1: if build is inside backend
+let frontendBuildPath = path.join(__dirname, 'build');
+
+// Option 2: if build is in sibling frontend folder (uncomment if needed)
+// frontendBuildPath = path.join(__dirname, '../reporting-system-frontend/build');
+
 app.use(express.static(frontendBuildPath));
 
 // ✅ Catch-all route for React frontend (skip /api routes)
 app.get(/^(?!\/api).*/, (req, res) => {
   res.sendFile(path.join(frontendBuildPath, 'index.html'));
+});
+
+// ✅ Test database connection
+app.get('/api/db-test', async (req, res) => {
+  try {
+    const db = require('./config/db'); // adjust if your DB config path is different
+    const [rows] = await db.query("SELECT 1");
+    res.json({ success: true, message: "Database connected ✅", rows });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 // ✅ Start server
