@@ -21,12 +21,10 @@ app.use('/api/reports', reportRoutes);
 app.use("/api/ratings", ratingsRouter);
 
 // ✅ Serve React frontend
-// Option 1: if build is inside backend
-let frontendBuildPath = path.join(__dirname, 'build');
+// Adjust the path based on your project structure
+const frontendBuildPath = path.join(__dirname, '../reporting-system-frontend/build');
 
-// Option 2: if build is in sibling frontend folder (uncomment if needed)
-// frontendBuildPath = path.join(__dirname, '../reporting-system-frontend/build');
-
+// Serve static files from the React app
 app.use(express.static(frontendBuildPath));
 
 // ✅ Catch-all route for React frontend (skip /api routes)
