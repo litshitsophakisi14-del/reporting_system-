@@ -21,7 +21,7 @@ app.use('/api/reports', reportRoutes);
 app.use("/api/ratings", ratingsRouter);
 
 // ✅ Serve frontend
-const frontendBuildPath = path.join(__dirname, '../reporting-system-frontend/build');
+const frontendBuildPath = path.join(__dirname, '../build'); // updated path
 app.use(express.static(frontendBuildPath));
 
 // ✅ Catch-all route for React frontend (skip /api routes)
