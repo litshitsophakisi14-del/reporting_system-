@@ -1,0 +1,85 @@
+/* 🔹 Top Navbar */
+.top-navbar {
+  height: 70px;
+  width: 100%;
+  background-color: #007bff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 3px solid #0056b3;
+}
+
+.top-navbar .navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.top-navbar .navbar-actions button {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Dashboard body below navbar */
+.dashboard-body {
+  padding: 90px 2rem 2rem 2rem; /* leave space for navbar */
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Cards */
+.dashboard-card {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Search + Export inputs */
+.dashboard-section .mb-2 {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.navbar-actions button {
+  margin-left: 10px;
+}

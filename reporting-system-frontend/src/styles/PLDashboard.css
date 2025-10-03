@@ -1,0 +1,93 @@
+body {
+  margin: 0; /* Remove default margin from body */
+}
+
+.pl-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(90deg, #2c3e50, #4ca1af);
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+}
+
+.pl-title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.pl-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pl-buttons button {
+  background-color: #00b4d8;
+  border: none;
+  padding: 5px 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pl-buttons button:hover {
+  background-color: #48cae4;
+}
+
+.btn-logout {
+  background-color: #e63946;
+}
+
+.btn-logout:hover {
+  background-color: #f77f00;
+}
+
+.dashboard-content {
+  padding: 20px;
+  margin-top: 80px; /* Adjust this value to move content down further */
+}
+
+.add-course-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-course-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-course-form input:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+.add-course-form button {
+  background-color: #0077b6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.add-course-form button:hover {
+  background-color: #005f8d;
+}
