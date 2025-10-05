@@ -11,7 +11,7 @@ import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import FacultiesPage from "./components/FacultiesPage";
-import AdmissionPage from "./components/AdmissionPage";
+
 import NewsPage from "./components/NewsPage";
 import './App.css';
 
@@ -59,7 +59,6 @@ function DashboardRoutes() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/faculties" element={<FacultiesPage />} />
-      <Route path="/admissions" element={<AdmissionPage />} />
       <Route path="/news" element={<NewsPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

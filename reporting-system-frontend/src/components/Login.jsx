@@ -48,7 +48,7 @@ function Login() {
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
-          <h2>Welcome Back</h2>
+          <h2>🔒Limkokwing Login Portal🔒</h2>
           <p>Sign in to access your account</p>
         </div>
         

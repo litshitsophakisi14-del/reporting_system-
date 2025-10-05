@@ -1,55 +1,68 @@
 /* 🔹 Top Navbar */
 .top-navbar {
-  height: 70px;
+  height: 80px; /* Increased height for a bolder appearance */
   width: 100%;
-  background-color: #007bff;
+  background-color: #0056b3; /* Darker blue for a stronger presence */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 3rem; /* Increased padding for more spacing */
   color: white;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  border-bottom: 3px solid #0056b3;
+  border-bottom: 4px solid #004494; /* Darker border for emphasis */
 }
 
 .top-navbar .navbar-title {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increased font size for the title */
   font-weight: bold;
 }
 
 .top-navbar .navbar-actions button {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  font-size: 1rem; /* Increased font size for buttons */
+  padding: 0.75rem 1.5rem; /* Increased padding for buttons */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.top-navbar .navbar-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
 }
 
 /* Dashboard body below navbar */
 .dashboard-body {
-  padding: 90px 2rem 2rem 2rem; /* leave space for navbar */
+  padding: 100px 3rem 3rem 3rem; /* Increased space for a spacious feel */
+  background-color: #f4f4f4; /* Light background for contrast */
 }
 
 /* Dashboard grid */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min width for cards */
+  gap: 2rem; /* Increased gap for more breathing room */
 }
 
 /* Cards */
 .dashboard-card {
-  background-color: #f9f9f9;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  background-color: #ffffff; /* White background for cards */
+  padding: 2rem; /* More padding for comfort */
+  border-radius: 0.75rem; /* More rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
 }
 
 /* Search + Export inputs */
 .dashboard-section .mb-2 {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 1rem; /* Increased gap for better spacing */
+  margin-bottom: 2rem; /* Increased margin for space */
 }
 
 /* Modals */
@@ -59,7 +72,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for emphasis */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,18 +81,22 @@
 
 .modal-content {
   background-color: white;
-  padding: 2rem;
-  border-radius: 0.5rem;
+  padding: 3rem; /* Increased padding for a spacious feel */
+  border-radius: 1rem; /* More rounded corners */
   width: 90%;
-  max-width: 500px;
+  max-width: 600px; /* Increased max-width for larger content */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
 }
 
+/* Card actions */
 .card-actions {
-  margin-top: 1rem;
+  margin-top: 1.5rem; /* Increased margin for better spacing */
   display: flex;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 1rem; /* Increased gap between buttons */
 }
+
+/* Navbar actions button specific margin */
 .navbar-actions button {
-  margin-left: 10px;
+  margin-left: 15px; /* Increased margin for better spacing */
 }

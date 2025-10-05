@@ -2,7 +2,7 @@
 .top-navbar {
   height: 70px;
   width: 100%;
-  background: linear-gradient(90deg, #2a3a4a, #56a6b3);
+  background: linear-gradient(90deg, #f30000, #2f5d64);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,28 +28,77 @@
 /* Dashboard body below navbar */
 .dashboard-body {
   padding: 90px 2rem 2rem 2rem; /* leave space for navbar */
+  background-color: #eef2f3; /* Light background for contrast */
+  font-family: 'Arial', sans-serif; /* Modern font */
 }
 
 /* Dashboard grid */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem; /* Increased gap for better spacing */
 }
 
 /* Cards */
 .dashboard-card {
-  background-color: #f9f9f9;
-  padding: 1rem;
+  background-color: #ffffff; /* White background for cards */
+  padding: 1.5rem; /* More padding for comfort */
   border-radius: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transition: transform 0.2s, box-shadow 0.2s; /* Animation on hover */
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 /* Search inputs */
 .dashboard-section .mb-2 {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased margin for better spacing */
 }
+
+/* Input fields */
+.dashboard-section input[type="text"],
+.dashboard-section input[type="password"],
+.dashboard-section select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  transition: border-color 0.3s; /* Smooth transition */
+}
+
+.dashboard-section input[type="text"]:focus,
+.dashboard-section input[type="password"]:focus,
+.dashboard-section select:focus {
+  border-color: #2f5d64; /* Focus color */
+  outline: none; /* Remove default outline */
+}
+
+/* Action buttons */
 .navbar-actions button {
   margin-left: 10px;
+  background-color: #2f5d64; /* Button background */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.navbar-actions button:hover {
+  background-color: #f30000; /* Change color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-body {
+    padding: 70px 1rem 1rem 1rem; /* Adjust padding for mobile */
+  }
+  .top-navbar {
+    flex-direction: column; /* Stack items vertically on small screens */
+    height: auto;
+  }
 }

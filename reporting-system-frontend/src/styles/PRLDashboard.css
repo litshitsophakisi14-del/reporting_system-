@@ -1,49 +1,64 @@
 /* 🔹 Top Navbar */
 .top-navbar {
-  height: 70px;
+  height: 80px; /* Increased height for a bolder appearance */
   width: 100%;
-  background-color: #6f42c1; /* purple shade for PRL */
+  background-color: #6f42c1; /* Purple shade for PRL */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 3rem; /* Increased padding for a spacious feel */
   color: white;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  border-bottom: 3px solid #563d7c;
+  border-bottom: 4px solid #563d7c; /* Darker border for emphasis */
 }
 
 .top-navbar .navbar-title {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increased font size for the title */
   font-weight: bold;
 }
 
 .top-navbar .navbar-actions button {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  font-size: 1rem; /* Increased font size for buttons */
+  padding: 0.75rem 1.5rem; /* Increased padding for buttons */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.top-navbar .navbar-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
 }
 
 /* Push content below navbar */
 .dashboard-body {
-  padding: 90px 2rem 2rem 2rem;
+  padding: 100px 3rem 2rem 3rem; /* Increased padding for spacing */
+  background-color: #f8f9fa; /* Light background for contrast */
 }
 
 /* Grid layout */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min width for cards */
+  gap: 2rem; /* Increased gap for more breathing room */
 }
 
+/* Dashboard cards */
 .dashboard-card {
-  background: #fdfdfd;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #ffffff; /* White background for better contrast */
+  border-radius: 0.75rem; /* More rounded corners for a modern look */
+  padding: 2rem; /* More padding for comfort */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Added transition for hover effect */
 }
 
+.dashboard-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow on hover */
+}
+
+/* Spacing for navbar actions */
 .navbar-actions button {
-  margin-left: 10px;
+  margin-left: 15px; 
 }

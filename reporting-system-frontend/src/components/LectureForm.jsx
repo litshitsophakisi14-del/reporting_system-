@@ -24,7 +24,6 @@ function LectureForm({ onSuccess }) {
   });
   const [error, setError] = useState("");
 
-  // Fetch courses and user info
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -50,7 +49,6 @@ function LectureForm({ onSuccess }) {
     fetchData();
   }, []);
 
-  // Handle input change
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -61,7 +59,6 @@ function LectureForm({ onSuccess }) {
     }));
   };
 
-  // Handle course selection
   const handleCourseChange = e => {
     const selectedCourse = courses.find(c => c.id === Number(e.target.value));
     setFormData(prev => ({
@@ -73,7 +70,6 @@ function LectureForm({ onSuccess }) {
     }));
   };
 
-  // Submit lecture
   const handleSubmit = async e => {
     e.preventDefault();
     setError("");
@@ -81,7 +77,6 @@ function LectureForm({ onSuccess }) {
     const user = authService.getCurrentUser();
     if (!user) return setError("User not authenticated.");
 
-    // Validate required fields
     if (!formData.topic || !formData.date || !formData.course_id || !formData.venue) {
       return setError("Please fill in all required fields.");
     }
@@ -105,7 +100,6 @@ function LectureForm({ onSuccess }) {
       onSuccess?.();
       alert("Lecture submitted successfully!");
 
-      // Reset form
       setFormData({
         course_id: "",
         course_name: "",
@@ -133,90 +127,198 @@ function LectureForm({ onSuccess }) {
   };
 
   return (
-    <form className="lecture-form" onSubmit={handleSubmit}>
-      <h3>Add New Lecture</h3>
-      {error && <div className="alert alert-danger">{error}</div>}
-      {loading && <div className="loading">Loading...</div>}
+    <>
+      <style>{`
+        .lecture-form {
+          max-width: 800px;
+          margin: 40px auto;
+          padding: 30px 40px;
+          background-color: #111;
+          color: #f2f2f2;
+          border-radius: 15px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+          font-family: 'Poppins', sans-serif;
+        }
 
-      <div className="form-group">
-        <label>Course</label>
-        <select
-          name="course_id"
-          value={formData.course_id}
-          onChange={handleCourseChange}
-          required
-        >
-          <option value="">Select a course</option>
-          {courses.map(course => (
-            <option key={course.id} value={course.id}>
-              {course.name} ({course.code})
-            </option>
-          ))}
-        </select>
-      </div>
+        .lecture-form h3 {
+          text-align: center;
+          margin-bottom: 25px;
+          font-size: 2rem;
+          color: #4ca1af;
+          background: linear-gradient(90deg, #4ca1af, #c4e0e5);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
-      <div className="form-group">
-        <label>Faculty Name</label>
-        <input type="text" name="faculty_name" value={formData.faculty_name || ""} readOnly />
-      </div>
+        .lecture-form .alert {
+          background-color: #e74c3c;
+          color: #fff;
+          padding: 10px 15px;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          font-weight: 500;
+          text-align: center;
+        }
 
-      <div className="form-group">
-        <label>Course Code</label>
-        <input type="text" name="course_code" value={formData.course_code || ""} readOnly />
-      </div>
+        .lecture-form .loading {
+          text-align: center;
+          color: #4ca1af;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
 
-      <div className="form-group">
-        <label>Class Name</label>
-        <input type="text" name="class_name" value={formData.class_name || ""} onChange={handleChange} required />
-      </div>
+        .lecture-form .form-group {
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+        }
 
-      <div className="form-group">
-        <label>Date of Lecture</label>
-        <input type="date" name="date" value={formData.date || ""} onChange={handleChange} required />
-      </div>
+        .lecture-form label {
+          margin-bottom: 6px;
+          font-weight: 500;
+          color: #ccc;
+        }
 
-      <div className="form-group">
-        <label>Week of Reporting</label>
-        <input type="number" name="week" value={formData.week ?? 0} onChange={handleChange} required />
-      </div>
+        .lecture-form input,
+        .lecture-form select,
+        .lecture-form textarea {
+          padding: 12px 15px;
+          border-radius: 10px;
+          border: none;
+          background-color: #222;
+          color: #f2f2f2;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          outline: none;
+          box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
 
-      <div className="form-group">
-        <label>Scheduled Lecture Time</label>
-        <input type="time" name="scheduled_time" value={formData.scheduled_time || ""} onChange={handleChange} required />
-      </div>
+        .lecture-form input:focus,
+        .lecture-form select:focus,
+        .lecture-form textarea:focus {
+          background-color: #333;
+          box-shadow: 0 0 0 3px rgba(76,161,175,0.5);
+        }
 
-      <div className="form-group">
-        <label>Topic Taught</label>
-        <input type="text" name="topic" value={formData.topic || ""} onChange={handleChange} required />
-      </div>
+        .lecture-form textarea {
+          min-height: 100px;
+          resize: vertical;
+        }
 
-      <div className="form-group">
-        <label>Learning Outcomes of the Topic</label>
-        <textarea name="outcomes" value={formData.outcomes || ""} onChange={handleChange} required />
-      </div>
+        .lecture-form button.btn-primary {
+          width: 100%;
+          padding: 14px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          border-radius: 12px;
+          border: none;
+          background: linear-gradient(90deg, #4ca1af, #c4e0e5);
+          color: #000;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
 
-      <div className="form-group">
-        <label>Total Registered Students</label>
-        <input type="number" name="students_registered" value={formData.students_registered ?? 0} onChange={handleChange} required />
-      </div>
+        .lecture-form button.btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(76,161,175,0.7);
+        }
 
-      <div className="form-group">
-        <label>Number of Students Present</label>
-        <input type="number" name="students_present" value={formData.students_present ?? 0} onChange={handleChange} required />
-      </div>
+        @media screen and (max-width: 768px) {
+          .lecture-form {
+            padding: 25px 20px;
+          }
 
-      <div className="form-group">
-        <label>Venue</label>
-        <input type="text" name="venue" value={formData.venue || ""} onChange={handleChange} required />
-      </div>
+          .lecture-form h3 {
+            font-size: 1.7rem;
+          }
+        }
+      `}</style>
 
-      <div className="form-group">
-        <label>Lecturer's Recommendations</label>
-        <textarea name="recommendations" value={formData.recommendations || ""} onChange={handleChange} />
-      </div>
+      <form className="lecture-form" onSubmit={handleSubmit}>
+        <h3>Add New Lecture</h3>
+        {error && <div className="alert">{error}</div>}
+        {loading && <div className="loading">Loading...</div>}
 
-      <button type="submit" className="btn btn-primary">Submit Lecture</button>
-    </form>
+        <div className="form-group">
+          <label>Course</label>
+          <select
+            name="course_id"
+            value={formData.course_id}
+            onChange={handleCourseChange}
+            required
+          >
+            <option value="">Select a course</option>
+            {courses.map(course => (
+              <option key={course.id} value={course.id}>
+                {course.name} ({course.code})
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Faculty Name</label>
+          <input type="text" name="faculty_name" value={formData.faculty_name || ""} readOnly />
+        </div>
+
+        <div className="form-group">
+          <label>Course Code</label>
+          <input type="text" name="course_code" value={formData.course_code || ""} readOnly />
+        </div>
+
+        <div className="form-group">
+          <label>Class Name</label>
+          <input type="text" name="class_name" value={formData.class_name || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Date of Lecture</label>
+          <input type="date" name="date" value={formData.date || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Week of Reporting</label>
+          <input type="number" name="week" value={formData.week ?? 0} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Scheduled Lecture Time</label>
+          <input type="time" name="scheduled_time" value={formData.scheduled_time || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Topic Taught</label>
+          <input type="text" name="topic" value={formData.topic || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Learning Outcomes of the Topic</label>
+          <textarea name="outcomes" value={formData.outcomes || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Total Registered Students</label>
+          <input type="number" name="students_registered" value={formData.students_registered ?? 0} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Number of Students Present</label>
+          <input type="number" name="students_present" value={formData.students_present ?? 0} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Venue</label>
+          <input type="text" name="venue" value={formData.venue || ""} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Lecturer's Recommendations</label>
+          <textarea name="recommendations" value={formData.recommendations || ""} onChange={handleChange} />
+        </div>
+
+        <button type="submit" className="btn btn-primary">Submit Lecture</button>
+      </form>
+    </>
   );
 }
 

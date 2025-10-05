@@ -1,5 +1,6 @@
 body {
   margin: 0; /* Remove default margin from body */
+  font-family: 'Arial', sans-serif; /* Set a modern font */
 }
 
 .pl-navbar {
@@ -9,10 +10,11 @@ body {
   width: 100%;
   height: 70px;
   background: linear-gradient(90deg, #2c3e50, #4ca1af);
-  padding: 0;
+  padding: 0 2rem; /* Add horizontal padding */
   box-sizing: border-box;
-  position: absolute;
+  position: fixed; /* Changed to fixed for better accessibility */
   left: 0;
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
 .pl-title {
@@ -24,18 +26,19 @@ body {
 
 .pl-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px; /* Increased gap for better spacing */
 }
 
 .pl-buttons button {
   background-color: #00b4d8;
   border: none;
-  padding: 5px 16px;
+  padding: 8px 16px; /* Adjusted padding for a better look */
   color: white;
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 .pl-buttons button:hover {
@@ -53,15 +56,18 @@ body {
 .dashboard-content {
   padding: 20px;
   margin-top: 80px; /* Adjust this value to move content down further */
+  background-color: #eef2f3; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 .add-course-form {
-  background-color: #f9f9f9;
+  background-color: #ffffff; /* White background for the form */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .add-course-form input {
@@ -70,11 +76,12 @@ body {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: border-color 0.3s; /* Smooth transition */
 }
 
 .add-course-form input:focus {
-  border-color: #0077b6;
-  outline: none;
+  border-color: #0077b6; /* Change color on focus */
+  outline: none; /* Remove default outline */
 }
 
 .add-course-form button {
@@ -86,8 +93,9 @@ body {
   cursor: pointer;
   font-size: 16px;
   margin-right: 10px;
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 .add-course-form button:hover {
-  background-color: #005f8d;
+  background-color: #005f8d; /* Darker shade on hover */
 }

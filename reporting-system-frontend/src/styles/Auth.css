@@ -7,9 +7,9 @@
 }
 
 .auth-card {
-  background: white;
+  background: rgba(0, 0, 0, 0.2); /* Updated for transparency */
   border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(10, 0, 0, 0.6); /* Slightly darker shadow */
   width: 100%;
   max-width: 450px;
   padding: 40px;
@@ -21,7 +21,7 @@
 }
 
 .auth-header h2 {
-  color: #2c3e50;
+  color: #2c3e50; /* Change to a darker color if needed */
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -52,6 +52,7 @@
   margin-top: 10px;
   background: linear-gradient(90deg, #2c3e50, #4ca1af);
   transition: all 0.3s ease;
+  border: none; /* Remove border for a cleaner look */
 }
 
 .auth-button:hover {
